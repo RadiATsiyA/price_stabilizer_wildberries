@@ -1,9 +1,16 @@
 import requests
 import json
+import parser
 
 
-def get_current_price(headers_get):
-    """Создает json файл с текущей информацией о товарах"""
+def get_current_price_using_parsing(seller_id):
+    parser.get_html_page(seller_id)
+    data = parser.parse()
+    parser.save_json(data)
+
+
+def get_current_price_using_api(headers_get):
+    """Создает json файл с текущей информацией о товарах  обращаесь к API"""
     response = requests.get('https://suppliers-api.wildberries.ru/public/api/v1/info', headers=headers_get)
 
     if response.status_code == 200:
