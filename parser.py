@@ -36,7 +36,7 @@ def get_html_page(seller_id):
             footer_element = driver.find_element(By.ID, 'footer')
             if footer_element:
                 driver.execute_script("arguments[0].scrollIntoView();", footer_element)
-                time.sleep(1)
+                time.sleep(5)
         with open('page.html', 'w') as f:
             f.write(driver.page_source)
     except Exception as e:
@@ -52,7 +52,7 @@ def save_json(data: list):
         json.dump(data, file, indent=4)
 
 
-def parse() -> list:
+def parse():
     """Parsing html page
       return list of prices with discount and product's id
     """
@@ -65,9 +65,13 @@ def parse() -> list:
     all_products = soup.find_all('article', class_='product-card product-card--hoverable j-card-item')
     for product in all_products:
         id_product = product.get('data-nm-id').strip()
-        price_with_discount = product.find('ins', class_='price__lower-price').text.strip().replace(' ', '').replace('₽', '')
+        real_price = product.find('ins', class_='price__lower-price').text.strip().replace(' ', '').replace('₽', '')
+        discount = product.find('p', class_='product-card__tip product-card__tip--sale').text.replace('-', '').replace('%', '')
         data.append({
             'nmId': id_product,
-            'price': price_with_discount
+            'price': real_price,
+            'discount': discount
         })
-    return data
+    sorted_data = sorted(data, key=lambda x: x['nmId'])
+    print(len(sorted_data))
+    return sorted_data
