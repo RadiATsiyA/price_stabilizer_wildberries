@@ -11,4 +11,6 @@
 ```
  git clone https://github.com/RadiATsiyA/price_stabilizer_wildberries.git
 ```
-
+чест лень далбше писать 
+```
+pass
