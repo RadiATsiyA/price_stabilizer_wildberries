@@ -7,7 +7,8 @@
 
 ## Инструкция
 
-Для начала склонируйте репозиторий:
-		git clone https://github.com/RadiATsiyA/price_stabilizer_wildberries.git
-
+  Для начала склонируйте репозиторий:<br>
+```
+ git clone https://github.com/RadiATsiyA/price_stabilizer_wildberries.git
+```
 
