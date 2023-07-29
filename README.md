@@ -8,6 +8,6 @@
 ## Инструкция
 
 Для начала склонируйте репозиторий:
-  git clone 
+		git clone https://github.com/RadiATsiyA/price_stabilizer_wildberries.git
 
 
