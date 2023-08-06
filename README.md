@@ -11,6 +11,4 @@
 ```
  git clone https://github.com/RadiATsiyA/price_stabilizer_wildberries.git
 ```
-чест лень далбше писать 
-```
-pass
+пока стооп, я нашел очень бесячую ошибку, скоро исправлю
